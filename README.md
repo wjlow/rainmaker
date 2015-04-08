@@ -1,1 +1,3 @@
 # rainmaker
+
+Install nodejs!
