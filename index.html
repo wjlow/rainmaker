@@ -17,14 +17,15 @@
         100% {top:100vh;opacity: 0;}
       }
 
-      #androo{
+      .androo{
           opacity: 0;
           width: 525px;
           height: 227px;
-          position: relative;
+          position: absolute;
           -webkit-animation-name: example;
           -webkit-animation-duration: 5s;
           -webkit-animation-timing-function: ease-out;
+          background-image: url( https://dl.dropboxusercontent.com/s/8xy2zj7uku0ldic/androoooo.png);
       }
 
 
@@ -43,7 +44,13 @@
         return false;
       });
       socket.on('rain', function(msg){
-        $('#messages').html($('<div id="androo"><img src="https://dl.dropboxusercontent.com/s/8xy2zj7uku0ldic/androoooo.png"></img></div>'));
+
+    
+var horizont = 100 * Math.random()-10;
+    
+    var oldMoney = "<div class='androo' style='left: "+horizont+"vw'></div>";
+    $("#messages").prepend(oldMoney);
+    $(".androo").delay(5000).fadeOut();
       });
     </script>
   </body>
