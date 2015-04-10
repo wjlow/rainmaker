@@ -11,13 +11,28 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
+      @-webkit-keyframes example {
+          0% {top:-500px; opacity: 1;}
+         65% {opacity: 1;}
+        100% {top:100vh;opacity: 0;}
+      }
+
+      #androo{
+          opacity: 0;
+          width: 525px;
+          height: 227px;
+          position: relative;
+          -webkit-animation-name: example;
+          -webkit-animation-duration: 5s;
+          -webkit-animation-timing-function: ease-out;
+      }
+
+
+      }
     </style>
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
@@ -28,7 +43,7 @@
         return false;
       });
       socket.on('rain', function(msg){
-        $('#messages').html($('<marquee><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRpythRYmwsK2uELQtAYmx0qFmQIsiMHDRjdm8H6ruXhcc-GVNBpOpbyVo"></img></marquee>'));
+        $('#messages').html($('<div id="androo"><img src="https://dl.dropboxusercontent.com/s/8xy2zj7uku0ldic/androoooo.png"></img></div>'));
       });
     </script>
   </body>
