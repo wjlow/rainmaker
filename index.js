@@ -12,7 +12,7 @@ app.get('/rain', function(req, res) {
     res.sendStatus(200);
 });
 
-http.listen(process.env.PORT || 8080), function(){
+http.listen(process.env.PORT || 8080, function(){
   console.log('listening on *:8080');
 });
 
