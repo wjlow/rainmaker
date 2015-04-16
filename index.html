@@ -1,71 +1,34 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <title>Socket.IO chat</title>
     <style>
         @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
         body{
-        background-color: #fff ;
+            background-color: #fff ;
         }
-
-        .star{
-        font-size: 0.8em;
-        vertical-align: 0.15em;
+        @-webkit-keyframes example {
+            0% {top:-500px; }
+            100% {top:100vh;}
         }
-
-        a.dolla{
-        letter-spacing: 0.02em;
-        position: fixed;
-        display: block;
-        top: 20px;
-        left: 20px;
-        font-family: 'Source sans pro', arial;
-        font-size: 1.8em;
-        z-index: 200;
-        text-decoration: none;
-        color: black;
-        border: 0.1em solid;
-        padding: 0.2em 0.4em;
-        left: 48vw;
-        top: 48vh;
-        }
-
-        a.dolla:hover{
-        border-right: 0.2em solid;
-        border-left: 0.2em solid;
-        border-bottom: 0.5em solid;
-        margin-left: -0.1em;
-        }
-
-        a.dolla:active{
-        top:48.2vh;
-        }
-
-
-        @keyframes example {
-        0% {top:-500px; }
-        100% {top:100vh;}
-        }
-
         .bill{
-        background-color: #fff;
-        width: 525px;
-        height: 227px;
-        position: absolute;
+            background-color: #fff;
+            width: 525px;
+            height: 227px;
+            position: absolute;
         }
-
         .bill img{
-        width: 100%;
-        height: 100%;
+            width: 100%;
+            height: 100%;
         }
     </style>
-  </head>
-  <body>
-    <ul id="messages"></ul>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
+</head>
+<body>
+<ul id="messages"></ul>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
       var socket = io();
       $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
@@ -93,9 +56,9 @@
       	"z-index": depth.toString(),
       	"width": (depth/100*525).toString()+"px",
       	"height": (depth/100*227).toString()+"px",
-      	"animation-name": "example",
-        "animation-duration": duration.toString()+"s",
-    		"animation-timing-function": "ease-out"
+      	"-webkit-animation-name": "example",
+        "-webkit-animation-duration": duration.toString()+"s",
+    	"-webkit-animation-timing-function": "ease-out"
     });
 
     $("."+dollarClass).delay(duration*900).fadeOut(500, function() { $(this).remove(); });
@@ -103,7 +66,7 @@
   });
 
 });
-      });
-    </script>
-  </body>
+});
+</script>
+</body>
 </html>
