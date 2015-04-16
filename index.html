@@ -3,8 +3,6 @@
 <head>
     <title>Socket.IO chat</title>
     <style>
-        @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
-
         body{
             background-color: #fff ;
         }
@@ -37,36 +35,29 @@
       });
       var manyDollars = 0;
       socket.on('rain', function(msg){
+        console.log("raining...");
 
-    console.log("raining...");
-	var horizont = 100 * Math.random()-10;
-    var depth = Math.round(100 * Math.random()+1);
-    var dollarClass = "dollar"+manyDollars.toString();
-    manyDollars++;
-    var duration = 5/(depth/100);
+        var horizont = 100 * Math.random()-10;
+        var depth = Math.round(100 * Math.random()+1);
+        var dollarClass = "dollar"+manyDollars.toString();
+        manyDollars++;
+        var duration = 5/(depth/100);
+        var opacityStyle="opacity: "+(depth/100).toString()+"; ";
+        var oldMoney = "<div class='bill "+dollarClass+"'><img src='https://dl.dropboxusercontent.com/s/8xy2zj7uku0ldic/androoooo.png' style='"+opacityStyle+"'/></div>";
 
-    var opacityStyle="opacity: "+(depth/100).toString()+"; ";
+        $("body").prepend(oldMoney);
+        $("."+dollarClass).css({
+            "left": horizont+"vw",
+            "z-index": depth.toString(),
+            "width": (depth/100*525).toString()+"px",
+            "height": (depth/100*227).toString()+"px",
+            "-webkit-animation-name": "example",
+            "-webkit-animation-duration": duration.toString()+"s",
+            "-webkit-animation-timing-function": "ease-out"
+        });
 
-
-    var oldMoney = "<div class='bill "+dollarClass+"'><img src='https://dl.dropboxusercontent.com/s/8xy2zj7uku0ldic/androoooo.png' style='"+opacityStyle+"'/></div>";
-    $("body").prepend(oldMoney);
-
-    $("."+dollarClass).css({
-    		"left": horizont+"vw",
-      	"z-index": depth.toString(),
-      	"width": (depth/100*525).toString()+"px",
-      	"height": (depth/100*227).toString()+"px",
-      	"-webkit-animation-name": "example",
-        "-webkit-animation-duration": duration.toString()+"s",
-    	"-webkit-animation-timing-function": "ease-out"
-    });
-
-    $("."+dollarClass).delay(duration*900).fadeOut(500, function() { $(this).remove(); });
-
-  });
-
-});
-});
+        $("."+dollarClass).delay(duration*900).fadeOut(500, function() { $(this).remove(); });
+      });
 </script>
 </body>
 </html>
