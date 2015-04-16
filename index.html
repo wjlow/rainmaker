@@ -10,6 +10,10 @@
             0% {top:-500px; }
             100% {top:100vh;}
         }
+        @-moz-keyframes example {
+            0% {top:-500px; }
+            100% {top:100vh;}
+        }
         .bill{
             background-color: #fff;
             width: 525px;
@@ -53,7 +57,10 @@
             "height": (depth/100*227).toString()+"px",
             "-webkit-animation-name": "example",
             "-webkit-animation-duration": duration.toString()+"s",
-            "-webkit-animation-timing-function": "ease-out"
+            "-webkit-animation-timing-function": "ease-out",
+            "-moz-animation-name": "example",
+            "-moz-animation-duration": duration.toString()+"s",
+            "-moz-animation-timing-function": "ease-out"
         });
 
         $("."+dollarClass).delay(duration*900).fadeOut(500, function() { $(this).remove(); });
