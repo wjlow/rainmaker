@@ -47,7 +47,8 @@
         manyDollars++;
         var duration = 5/(depth/100);
         var opacityStyle="opacity: "+(depth/100).toString()+"; ";
-        var oldMoney = "<div class='bill "+dollarClass+"'><img src='androoooo.png' style='"+opacityStyle+"'/></div>";
+        var imgsrc = 'https://dl.dropboxusercontent.com/u/14431015/androoooo.png';
+        var oldMoney = "<div class='bill "+dollarClass+"'><img src='" + imgsrc + "' style='"+opacityStyle+"'/></div>";
 
         $("body").prepend(oldMoney);
         $("."+dollarClass).css({
